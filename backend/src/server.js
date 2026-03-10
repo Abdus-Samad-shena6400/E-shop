@@ -32,6 +32,12 @@ app.get('/api/health', (req, res) => {
   res.status(200).json({ message: 'Server is running' });
 });
 
+// Root route (for browser or direct visits)
+app.get('/', (req, res) => {
+  // optional: redirect to health or send a friendly message
+  return res.json({ message: 'Welcome to the E‑shop API. Visit /api/health to check status.' });
+});
+
 // 404 handler
 app.use((req, res) => {
   res.status(404).json({ message: 'Route not found' });
